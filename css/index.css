@@ -1,0 +1,68 @@
+.main{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.item{
+	position: relative;
+	width: 160px;
+	height: 160px;
+	background:url('https://pic.imgdb.cn/item/64aa86e31ddac507cc64c369.jpg') ;
+    background-size:cover;
+	border-radius: 50%;
+    box-shadow: inset 0 0 0 8px rgba(255, 255,
+	 255, 0.6),0 1px 2px rgba(0, 0, 0, 0.1);
+	transition: all 1s ease-in-out ;
+}
+
+.info{
+	opacity: 0;
+	transform: scale(0);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background:rgba(63,147,147,0.8);
+	border-radius: 50%;
+	text-align: center;
+	transition: all 0.5s ease-in-out;
+}
+.info h3{
+	height: 60px;
+	font-size: 18px;
+	color: #fff;
+	margin: 0 30px;
+	padding-top: 20px;
+	text-transform: uppercase;
+}
+.info p{
+	opacity: 0;
+	font-size: 16px;
+	color: #fff;
+	font-style: italic;
+    margin: 0 30;
+	padding-top: 10px;
+	border-top: 1px solid rgba(255,255,255,0.5);
+	transition: all 0.4s ease-in-out 0.4s;
+}
+.info a{
+	display: block;
+	color: #fff;
+	font-style: normal;
+}
+.item:hover{
+	box-shadow: inset 0 0 0 1px rgba(255, 255,
+	 255, 0.1),0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.item:hover .info{
+	opacity: 1;
+	transform: scale(1);
+}
+.item:hover .info p{
+	opacity: 1;
+}
+.info p a:hover{
+	color: yellow; 
+}
