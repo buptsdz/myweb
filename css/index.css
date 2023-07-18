@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("/img/backGround/background.webp");
+  background: url("/img/backGround/background.jpg");
   background-size: cover;
 }
 
