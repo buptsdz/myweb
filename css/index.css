@@ -73,3 +73,10 @@
 .info p a:hover {
   color: yellow;
 }
+
+hr {
+  height: 2px;
+  background-color: rgb(250, 141, 7);
+  border-color: bisque;
+  width: 70%;
+}

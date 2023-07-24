@@ -1,9 +1,10 @@
-p a {
+.a-svg {
   position: relative;
   --line: black;
   --line-active: red;
+  color: gray;
 }
-p a svg {
+svg {
   width: 75px;
   height: 49px;
   position: absolute;
@@ -18,9 +19,10 @@ p a svg {
   stroke-dashoffset: 383px;
   transition: stroke 0.25s ease var(--delay, 0s), stroke-dasharray 0.35s;
 }
-p a:hover {
+.a-svg:hover {
   --spacing: 4px;
   --stroke: var(--line-active);
   --delay: 0.1s;
   --offset: 190px;
+  color: blue;
 }
