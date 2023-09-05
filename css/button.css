@@ -1,4 +1,4 @@
-.color-button {
+.button2 {
   width: 200px;
   height: 50px;
   color: #fff;
@@ -9,7 +9,7 @@
   border-radius: 10px;
 }
 
-.color-button::before {
+.button2::before {
   content: "";
   width: 208px;
   height: 58px;
@@ -36,7 +36,7 @@
   opacity: 0; /*透明度*/
 }
 
-.color-button::after {
+.button2::after {
   content: "";
   position: absolute;
   left: 0;
@@ -49,10 +49,10 @@
   opacity: 1;
 }
 /*设置伪类*/
-.color-button:hover::before {
+.button2:hover::before {
   opacity: 1;
 } /*悬停*/
-.color-button:active::after {
+.button2:active::after {
   opacity: 0;
 } /*按下激活*/
 
