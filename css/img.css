@@ -8,3 +8,9 @@
 .img-container img {
   display: inline-block;
 }
+
+.no-link-style {
+  text-decoration: none; /* 去掉下划线 */
+  outline: none; /* 去掉链接的焦点样式（点击后的虚线框） */
+  border: none; /* 去掉链接的边框 */
+}
