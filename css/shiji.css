@@ -1,0 +1,81 @@
+.backbutton {
+	display: flex;
+	justify-content: left;
+	align-items: left;
+}
+
+.left_sec {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.right_sec {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.main2 {
+	width: 550px;
+	display: flex;
+	margin-left: -90px;
+	flex-direction: column;
+}
+
+.main2 .sons {
+	height: auto;
+	width: 100%;
+	clear: both;
+	background-color: #F0EFE2;
+	overflow: hidden;
+	margin-top: 20px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+
+.main2 .sons .cont {
+	height: auto;
+	clear: both;
+	margin-top: 15px;
+	font-size: 14px;
+	margin-left: 50px;
+	margin-right: 20px;
+	line-height: 200%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.main2 .sons .cont .date {
+	line-height: 200%;
+	margin-top: auto;
+	margin-top: 10px;
+	text-align: center;
+	margin-left: 50px;
+	font-size: 15px;
+}
+
+.main2 .sons .cont .contson {
+	clear: both;
+	overflow: hidden;
+}
+
+.main2 .sons .cont p {
+	margin-bottom: 10px;
+	line-height: 200%;
+}
+
+.main2 .sons .cont a {
+	font-size: 14px;
+	line-height: 200%;
+}
+
+.main2 .sons .cont span {
+	line-height: 200%;
+}
