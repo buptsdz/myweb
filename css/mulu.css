@@ -3,6 +3,10 @@
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	width: 80%;
+	/* 设置盒子宽度为50%或您想要的宽度 */
+	margin: 0 auto;
+	/* 水平居中，左右外边距为auto */
 }
 
 .three-columns {
@@ -47,7 +51,7 @@
 	display: flex;
 	/* 使用 Flexbox 布局 */
 	align-items: left;
-    flex-direction: column;
+	flex-direction: column;
 	max-width: 300px;
 	width: 70%;
 }
@@ -56,14 +60,14 @@
 	margin-top: 10px;
 	display: flex;
 	/* 使用 Flexbox 布局 */
-	flex-grow:1;
+	flex-grow: 1;
 }
 
 .three-columns .ul2 li {
 	margin-top: 10px;
 	display: flex;
 	/* 使用 Flexbox 布局 */
-	flex-grow:1;
+	flex-grow: 1;
 }
 
 .a-nounderline {
@@ -77,7 +81,7 @@
 	/* 设置序号列的宽度 */
 	text-align: right;
 	/* 右对齐序号 */
-	margin-right:7px ;
+	margin-right: 7px;
 }
 
 .a-nounderline:hover {
