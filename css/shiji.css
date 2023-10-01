@@ -11,18 +11,12 @@
 	align-items: center;
 }
 
-.right_sec {
-	display: flex;
-	flex: 1 1 auto;
-	justify-content: center;
-	align-items: center;
-}
-
 .main2 {
-	width: 550px;
+	width: 80%;
+	max-width: 500px;
 	display: flex;
-	margin-left: -90px;
 	flex-direction: column;
+	margin-left: 0%;
 }
 
 .main2 .sons {
@@ -43,7 +37,7 @@
 	clear: both;
 	margin-top: 15px;
 	font-size: 14px;
-	margin-left: 50px;
+	margin-left: 10%;
 	margin-right: 20px;
 	line-height: 200%;
 	overflow: hidden;
@@ -55,9 +49,8 @@
 .main2 .sons .cont .date {
 	line-height: 200%;
 	margin-top: auto;
-	margin-top: 10px;
 	text-align: center;
-	margin-left: 50px;
+	margin-left: 20%;
 	font-size: 15px;
 }
 

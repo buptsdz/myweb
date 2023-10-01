@@ -1,0 +1,45 @@
+.pagination-bar {
+	font-size: 0px;
+	padding: 20px 0px;  
+	position: relative;
+	margin-top: 15px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #ccc; /* 可选，添加一个上边框作为分隔线 */ 
+    /* z-index: 1000; /* 可选，控制导航栏的层叠顺序 */ 
+}
+
+.pagination-bar a {
+	display: inline-block;
+	padding: 5px 7.5px;
+	text-decoration: none;
+	min-width: 20px;
+	font-size: 16px;
+}
+
+.pagination-bar a:not(.disabled) {
+	background-color: #FFF;
+	color: #666;
+	border: 1px solid #BBBBBB;
+}
+
+.pagination-bar a.disabled {
+	background-color: #666;
+	color: #FFF;
+	border: 1px solid #444;
+}
+
+.page-prev {
+	border-radius: 15px 0px 0px 15px;
+}
+
+.page-next {
+	border-radius: 0px 15px 15px 0px
+}
+
+.pagination-bar span:not(.active) {
+	display: inline-block;
+	padding: 5px 7.5px;
+	font-size: 16px;
+}
