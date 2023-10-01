@@ -5,6 +5,7 @@
 }
 
 .left_sec {
+	margin-top: 15px;
 	display: flex;
 	flex: 1 1 auto;
 	justify-content: center;
