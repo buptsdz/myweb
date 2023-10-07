@@ -1,15 +1,26 @@
 .pagination-bar {
 	font-size: 0px;
-	padding: 20px 0px;  
+	padding-top: 20px;  
 	position: relative;
 	margin-top: 15px;
     bottom: 0;
     width: 100%;
     text-align: center;
     border-top: 1px solid #ccc; /* 可选，添加一个上边框作为分隔线 */ 
+	margin-bottom: 10px;
     /* z-index: 1000; /* 可选，控制导航栏的层叠顺序 */ 
 }
-
+.pagination-bar-go {
+	font-size: 0px;
+	padding-top: 10px;  
+	position: relative;
+	margin-top: 10px;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #ccc; /* 可选，添加一个上边框作为分隔线 */ 
+	margin-bottom: 25px;
+}
 .pagination-bar a {
 	display: inline-block;
 	padding: 5px 7.5px;
