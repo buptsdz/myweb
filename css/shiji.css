@@ -30,6 +30,7 @@
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
+	margin-bottom: 3px;
 }
 
 
@@ -47,17 +48,41 @@
 	flex-direction: column;
 }
 
+/* 默认字体大小适用于电脑端 */
+.main2 .sons .cont .contson {
+    clear: both;
+    overflow: hidden;
+    font-size: 16px; /* 电脑端的字体大小 */
+}
+
+/* 在小屏幕设备（例如手机）上使用不同的字体大小 */
+@media screen and (max-width: 768px) {
+    .main2 .sons .cont .contson {
+        font-size: 14px; /* 手机端的字体大小 */
+    }
+}
+
 .main2 .sons .cont .date {
 	line-height: 200%;
 	margin-top: auto;
+	text-align: right;
+	margin-right: 15%;
+	font-size: 16px;
+}
+
+.main2 .sons .cont .scene {
+	line-height: 200%;
+	margin-top: -10px;
 	text-align: center;
-	margin-left: 20%;
+	margin-left: 28%;
 	font-size: 15px;
 }
 
-.main2 .sons .cont .contson {
-	clear: both;
-	overflow: hidden;
+@media screen and (max-width: 768px) {
+    .main2 .sons .cont .date,
+	.main2 .sons .cont .scene {
+        font-size: 14px;
+    }
 }
 
 .main2 .sons .cont p {

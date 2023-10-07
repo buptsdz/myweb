@@ -28,7 +28,7 @@
 	list-style-type: none;
 	/* 去掉列表符号 */
 	font-size: 17px;
-	margin-left: 8%;
+	margin-left: 7%;
 	display: flex;
 	/* 使用 Flexbox 布局 */
 	align-items: left;
@@ -42,17 +42,21 @@
 	/* 均等分布剩余空间 */
 	text-align: left;
 	/* 可选：居中文本 */
-	padding: 10px;
+	padding: 15px;
+	padding-top: 10px;
+	padding-left: 0;
+	padding-right: 7px;
 	/* 可选：添加内边距 */
 	list-style-type: none;
 	/* 去掉列表符号 */
 	font-size: 17px;
-	margin-left: 10%;
+	margin-right: 2%;
+	margin-left: 5%;
 	display: flex;
 	/* 使用 Flexbox 布局 */
 	align-items: left;
 	flex-direction: column;
-	max-width: 300px;
+	max-width: 270px;
 	width: 70%;
 }
 
