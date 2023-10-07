@@ -1,3 +1,36 @@
+.zuolan {
+	display: flex;
+	justify-content: left;
+	align-items: left;
+	flex-direction: column;
+	position: absolute;
+	max-width: 100px;
+}
+
+.zuolan .backbutton1 {
+	display: flex;
+	justify-content: left;
+	align-items: left;
+	max-width: 150px;
+	flex-direction: column;
+}
+
+.jianjie {
+	display: block;
+	margin-top: 5px;
+}
+
+.jianjie a {
+	font-size: 20px;
+	text-decoration: none;
+	color: black;
+}
+
+.jianjie a:hover {
+	color: blue;
+	/* 悬停时的颜色 */
+}
+
 .htitle {
 	text-align: center;
 	display: flex;
@@ -5,8 +38,29 @@
 	flex-direction: column;
 	width: 80%;
 	/* 设置盒子宽度为50%或您想要的宽度 */
-	margin: 0 auto;
+	margin: auto;
 	/* 水平居中，左右外边距为auto */
+}
+
+.htitle h1 {
+	font-size: 40px;
+	margin: 10px;
+	margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+	.htitle h1 {
+	margin-top: 10px;
+	}
+}
+
+.htitle span {
+	font-size: 18px;
+}
+
+.htitle h2 {
+	margin: 0%;
+	font-size: 30px;
 }
 
 .three-columns {
