@@ -1,45 +1,68 @@
 .pagination-bar {
+	outline: none;
 	font-size: 0px;
-	padding-top: 20px;  
+	padding-top: 20px;
 	position: relative;
 	margin-top: 15px;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    border-top: 1px solid #ccc; /* 可选，添加一个上边框作为分隔线 */ 
-	margin-bottom: 10px;
-    /* z-index: 1000; /* 可选，控制导航栏的层叠顺序 */ 
+	bottom: 0;
+	margin-bottom: 40px;
+	width: 120%;
+	margin-left: -10%;
+	/* 10% 是因为你设置了宽度为 120% */
+	margin-right: -10%;
+	text-align: center;
+	border-top: 1px solid #ccc;
+	/* 可选，添加一个上边框作为分隔线 */
+	/* z-index: 1000; /* 可选，控制导航栏的层叠顺序 */
 }
+
 .pagination-bar-go {
 	font-size: 0px;
-	padding-top: 10px;  
+	padding-top: 10px;
 	position: relative;
 	margin-top: 10px;
 	bottom: 0;
 	width: 100%;
 	text-align: center;
-	border-top: 1px solid #ccc; /* 可选，添加一个上边框作为分隔线 */ 
+	border-top: 1px solid #ccc;
+	/* 可选，添加一个上边框作为分隔线 */
 	margin-bottom: 25px;
 }
+
 .pagination-bar a {
 	display: inline-block;
 	padding: 5px 7.5px;
 	text-decoration: none;
-	min-width: 20px;
+	min-width: 30px;
 	max-width: 10%;
 	font-size: 16px;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+
+@media screen and (max-width: 700px) {
+	.pagination-bar a {
+		font-size: 17px;
+		max-width: 13%;
+		padding: 2.5px 5px;
+	}
 }
 
 .pagination-bar a:not(.disabled) {
 	background-color: #FFF;
 	color: #666;
 	border: 1px solid #BBBBBB;
+	outline: none;
+	border: none;
 }
 
 .pagination-bar a.disabled {
 	background-color: #666;
 	color: #FFF;
 	border: 1px solid #444;
+	outline: none;
+	border: none;
 }
 
 .page-prev {
