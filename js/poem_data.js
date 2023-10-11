@@ -56,10 +56,10 @@ function updatePoems(currentPageIndex) {
 	setTimeout(function() {
 		loadPoems(poemsToShow);
 		updatePageLinks();
-		// 隐藏加载提示
-		// loading.forEach(function(loading) {
-		// 	loading.style.display = "none";
-		// });
+		隐藏加载提示
+		loading.forEach(function(loading) {
+			loading.style.display = "none";
+		});
 	}, 70);
 }
 
