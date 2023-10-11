@@ -7,39 +7,46 @@ const poemContainer = document.querySelector(".poem-container");
 const pageLinks = document.querySelector(".pagination-bar");
 
 function goToPage() {
-    var pageInput = document.getElementById("pageInput").value;
-    var maxLimit = Math.ceil(poemsData.length / poemsPerPage); // 修改最大值
+	var pageInput = document.getElementById("pageInput").value;
+	var maxLimit = Math.ceil(poemsData.length / poemsPerPage); // 修改最大值
 
-    if (pageInput >= 1 && pageInput <= maxLimit) {
-        // 输入在有效范围内，继续跳转逻辑
-		currentPageIndex=parseInt(pageInput) - 1;
-        setTimeout(function() {
-        	updatePoems(currentPageIndex);
-        }, 120);
-		
-    } else {
-        // 输入不在有效范围内，显示错误消息
-        alert("请输入1到" + maxLimit + "之间的页码。");
-    }
+	if (pageInput >= 1 && pageInput <= maxLimit) {
+		// 输入在有效范围内，继续跳转逻辑
+		currentPageIndex = parseInt(pageInput) - 1;
+		setTimeout(function() {
+			updatePoems(currentPageIndex);
+		}, 120);
+
+	} else {
+		// 输入不在有效范围内，显示错误消息
+		alert("请输入1到" + maxLimit + "之间的页码。");
+	}
 }
 
 // 在页面加载时为所有具有.page-input类的输入字段应用最小和最大值限制
-document.addEventListener("DOMContentLoaded", function () {
-    var pageInputs = document.querySelectorAll(".page-input");
-    var minLimit = 1;
-    var maxLimit = Math.ceil(poemsData.length / poemsPerPage);
+document.addEventListener("DOMContentLoaded", function() {
+	var pageInputs = document.querySelectorAll(".page-input");
+	var minLimit = 1;
+	var maxLimit = Math.ceil(poemsData.length / poemsPerPage);
 
-    pageInputs.forEach(function (input) {
-        input.setAttribute("min", minLimit);
-        input.setAttribute("max", maxLimit);
-    });
+	pageInputs.forEach(function(input) {
+		input.setAttribute("min", minLimit);
+		input.setAttribute("max", maxLimit);
+	});
 });
 
-// 更新诗歌展示
 function updatePoems(currentPageIndex) {
 	const start = currentPageIndex * poemsPerPage;
 	const end = start + poemsPerPage;
 	const poemsToShow = poemsData.slice(start, end);
+
+	// 获取加载提示元素
+	const loading = document.querySelectorAll(".loading");
+
+	// 显示加载提示
+	loading.forEach(function(loading) {
+		loading.style.display = "block";
+	});
 
 	// 清空诗歌容器
 	poemContainer.innerHTML = "";
@@ -49,8 +56,11 @@ function updatePoems(currentPageIndex) {
 	setTimeout(function() {
 		loadPoems(poemsToShow);
 		updatePageLinks();
+		// 隐藏加载提示
+		// loading.forEach(function(loading) {
+		// 	loading.style.display = "none";
+		// });
 	}, 70);
-
 }
 
 // 加载诗歌的函数

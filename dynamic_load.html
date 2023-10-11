@@ -9,14 +9,15 @@
 		<link rel="stylesheet" type="text/css" href="./css/p-a.css" />
 		<link rel="stylesheet" type="text/css" href="./css/a.css" />
 		<link rel="stylesheet" type="text/css" href="./css/img.css" />
-		<link rel="stylesheet" type="text/css" href="./css/shiji.css" />
+		<link rel="stylesheet" type="text/css" href="./css/dynamicLoad.css" />
 		<link rel="stylesheet" type="text/css" href="./css/pagination-bar.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	</head>
 	<body style="background-color: #E1E0C7;">
 		<div class="backbutton">
 			<a href="./mulu/mulu1.html" class="no-link-style" style="display: block; width: 50px; height: 50px;">
-				<img alt="返回" src="https://pic.imgdb.cn/item/6526443ac458853aef70e07b.png" style="width: 50px; height: 50px;" />
+				<img alt="返回" src="https://pic.imgdb.cn/item/6526443ac458853aef70e07b.png"
+					style="width: 50px; height: 50px;" />
 			</a>
 		</div>
 		<div class="qr_code">
@@ -26,6 +27,8 @@
 		<section style="display: flex;">
 			<div class="left_sec">
 				<div class="main2">
+					<div class="loading" style="display: none; z-index: 9999;font-size: 22px;">加载中<span> · </span><span> · </span><span> · </span><span> · </span><span> · </span><span> · </span></div>
+					<div class="loading" style="display: none; z-index: 9999;font-size: 15px;margin-top: 15px;">(第一次加载会比较慢)</div>
 					<div class="poem-container">
 						<script>
 							document.addEventListener("DOMContentLoaded", function() {

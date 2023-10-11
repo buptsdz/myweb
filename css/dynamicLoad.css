@@ -6,6 +6,40 @@
 	flex-direction: column;
 	position: absolute;
 }
+/* 加载中动画 */
+@keyframes loading {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.loading span {
+    animation-name: loading;
+    animation-duration: 2.4s;
+    animation-iteration-count: infinite;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.loading span:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.loading span:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.loading span:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+.loading span:nth-child(5) {
+    animation-delay: 1.6s;
+}
+
+.loading span:nth-child(6) {
+    animation-delay: 2s;
+}
 
 .qr_code {
 	position: absolute;
