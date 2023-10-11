@@ -31,6 +31,13 @@
 					<div class="loading" style="display: none; z-index: 9999;font-size: 15px;margin-top: 15px;">(第一次加载会比较慢)</div>
 					<div class="poem-container">
 						<script>
+							// 获取加载提示元素
+							const loading = document.querySelectorAll(".loading");
+							
+							// 显示加载提示
+							loading.forEach(function(loading) {
+								loading.style.display = "block";
+							});
 							document.addEventListener("DOMContentLoaded", function() {
 								// 从 URL 中获取页码参数
 								const urlParams = new URLSearchParams(window.location.search);
@@ -43,6 +50,10 @@
 								} else {
 									updatePoems(0);
 								}
+								//隐藏加载提示
+								loading.forEach(function(loading) {
+									loading.style.display = "none";
+								});
 							});
 						</script>
 					</div>

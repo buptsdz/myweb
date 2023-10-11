@@ -36,13 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function updatePoems(currentPageIndex) {
-	// 获取加载提示元素
-	const loading = document.querySelectorAll(".loading");
-
-	// 显示加载提示
-	loading.forEach(function(loading) {
-		loading.style.display = "block";
-	});
 	const start = currentPageIndex * poemsPerPage;
 	const end = start + poemsPerPage;
 	const poemsToShow = poemsData.slice(start, end);
@@ -55,10 +48,6 @@ function updatePoems(currentPageIndex) {
 	setTimeout(function() {
 		loadPoems(poemsToShow);
 		updatePageLinks();
-		//隐藏加载提示
-		loading.forEach(function(loading) {
-			loading.style.display = "none";
-		});
 	}, 70);
 }
 
