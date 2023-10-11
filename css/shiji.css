@@ -6,17 +6,21 @@
 	flex-direction: column;
 	position: absolute;
 }
+
 /* 样式化输入框 */
 #pageInput {
-    width: 20%; /* 设置宽度为200px，根据需要进行调整 */
+	width: 20%;
+	/* 设置宽度为200px，根据需要进行调整 */
 	max-width: 100px;
-    padding: 5px;
-    border-radius: 5px; /* 设置圆角 */
+	padding: 5px;
+	border-radius: 5px;
+	/* 设置圆角 */
 }
 
 /* 样式化按钮 */
 #goButton {
-    border-radius: 5px; /* 设置圆角 */
+	border-radius: 5px;
+	/* 设置圆角 */
 	margin-left: 10px;
 	height: 100%;
 }
@@ -106,12 +110,26 @@
 
 @media screen and (max-width: 700px) {
 	.main2 .sons .cont .contson {
-		font-size: 15px;
+		font-size: 16px;
 		/* 手机端的字体大小 */
 	}
 }
 
-/* 时间地点 */
+/* 内容中的超链接 */
+.main2 .sons .cont .contson a {
+	font-size: 17px;
+	color: red;
+	text-decoration: underline;
+	/* 电脑端的字体大小 */
+}
+
+@media screen and (max-width: 700px) {
+	.main2 .sons .cont .contson a {
+		font-size: 16px;
+		/* 手机端的字体大小 */
+	}
+}
+
 .main2 .sons .cont .scene {
 	margin-top: 5px;
 	margin-bottom: 11px;
@@ -127,6 +145,7 @@
 	/* 确保 .scene 元素占满父容器宽度 */
 }
 
+/* 时间地点 */
 .main2 .sons .cont .scene p {
 	font-size: 17px;
 	line-height: 1.2;
@@ -136,7 +155,8 @@
 
 @media screen and (max-width: 700px) {
 	.main2 .sons .cont .scene p {
-		font-size: 15px;
+		font-size: 16px;
+		/* 手机端的字体大小 */
 	}
 }
 

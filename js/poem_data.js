@@ -6,16 +6,9 @@ const poemsPerPage = 4;
 const poemContainer = document.querySelector(".poem-container");
 const pageLinks = document.querySelector(".pagination-bar");
 
-// const queryString = window.location.search;
-// const urlParams = new URLSearchParams(queryString);
-// const page = urlParams.get("page");
-
-// // 将页码转换为数字
-// const currentPageIndex = parseInt(page);
-
 
 // 更新诗歌展示
-function updatePoems() {
+function updatePoems(currentPageIndex) {
 	const start = currentPageIndex * poemsPerPage;
 	const end = start + poemsPerPage;
 	const poemsToShow = poemsData.slice(start, end);
@@ -40,10 +33,12 @@ function loadPoems(poemsData) {
 
 		// 使用正则表达式查找并替换目标文字
 		if (currentPageIndex == 18 && /枫红/g.test(contsonWithLinks)) {
-			contsonWithLinks = contsonWithLinks.replace(/枫红/g, '<a href="./dynamic_load.html?page=21" style="font-size: 17px;color:red;text-decoration:underline;">枫红</a>');
+			contsonWithLinks = contsonWithLinks.replace(/枫红/g,
+				'<a href="#" class="customs-link" data-page="21">枫红</a>');
 		}
 		if (currentPageIndex == 20 && /枫红/g.test(contsonWithLinks)) {
-			contsonWithLinks = contsonWithLinks.replace(/枫红/g, '<a href="./dynamic_load.html?page=19" style="font-size: 17px;color:red;text-decoration:underline;">枫红</a>');
+			contsonWithLinks = contsonWithLinks.replace(/枫红/g,
+				'<a href="#" class="customs-link" data-page="19">枫红</a>');
 		}
 
 		const poemHtml = `
@@ -61,6 +56,20 @@ function loadPoems(poemsData) {
 	    `;
 
 		poemContainer.innerHTML += poemHtml;
+		// 为所有带有 "custom-link" 类的链接添加点击事件处理程序
+		const customLinks = document.querySelectorAll(".customs-link");
+		customLinks.forEach(link => {
+			link.addEventListener("click", function(event) {
+				// 获取参数
+				// 阻止默认行为，即不进行实际的页面跳转
+				event.preventDefault();
+				const datapage = event.target.getAttribute("data-page");
+				currentPageIndex = parseInt(datapage) - 1;
+				// 调用带有参数的函数
+				updatePoems(currentPageIndex);
+			});
+		});
+
 	});
 }
 
@@ -87,7 +96,7 @@ function updatePageLinks() {
 	firstPageLink.textContent = "首页"; // 修改为中文“首页”
 	firstPageLink.addEventListener("click", function() {
 		currentPageIndex = 0;
-		updatePoems();
+		updatePoems(currentPageIndex);
 	});
 	pageLinks.appendChild(firstPageLink);
 
@@ -97,7 +106,7 @@ function updatePageLinks() {
 	previousPageLink.addEventListener("click", function() {
 		if (currentPageIndex > 0) {
 			currentPageIndex--;
-			updatePoems();
+			updatePoems(currentPageIndex);
 		}
 	});
 	pageLinks.appendChild(previousPageLink);
@@ -121,7 +130,7 @@ function updatePageLinks() {
 		// 添加点击事件监听器
 		pageLink.addEventListener("click", function() {
 			currentPageIndex = i;
-			updatePoems();
+			updatePoems(currentPageIndex);
 		});
 
 		pageLinks.appendChild(pageLink);
@@ -140,7 +149,7 @@ function updatePageLinks() {
 	nextPageLink.addEventListener("click", function() {
 		if (currentPageIndex < totalPages - 1) {
 			currentPageIndex++;
-			updatePoems();
+			updatePoems(currentPageIndex);
 		}
 	});
 	pageLinks.appendChild(nextPageLink);
@@ -150,7 +159,7 @@ function updatePageLinks() {
 	lastPageLink.textContent = "尾页"; // 修改为中文“末页”
 	lastPageLink.addEventListener("click", function() {
 		currentPageIndex = totalPages - 1;
-		updatePoems();
+		updatePoems(currentPageIndex);
 	});
 	pageLinks.appendChild(lastPageLink);
 }
@@ -595,7 +604,7 @@ const poemsData = [{
 		id: "guanfeng",
 		b: "73.观风",
 		contson: "晴空一洗碧，直望白云端。<br>绿影飘摇尽，杪舞逐风转。<br>流光正抚慰，阳昏分暖凉。<br>欲眠上善里，清风又穿堂。<br>",
-		scenes: ["2021.4.29","作于一节化学课"],
+		scenes: ["2021.4.29", "作于一节化学课"],
 	},
 	{
 		id: "chunyu",

@@ -36,9 +36,9 @@
 								// 如果页码参数存在，传递给 updatePoems() 函数
 								if (pageNumber) {
 									currentPageIndex = parseInt(pageNumber) - 1;
-									updatePoems();
+									updatePoems(currentPageIndex);
 								} else {
-									updatePoems();
+									updatePoems(0);
 								}
 							});
 						</script>
