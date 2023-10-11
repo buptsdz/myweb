@@ -6,6 +6,34 @@ const poemsPerPage = 4;
 const poemContainer = document.querySelector(".poem-container");
 const pageLinks = document.querySelector(".pagination-bar");
 
+function goToPage() {
+    var pageInput = document.getElementById("pageInput").value;
+    var maxLimit = Math.ceil(poemsData.length / poemsPerPage); // 修改最大值
+
+    if (pageInput >= 1 && pageInput <= maxLimit) {
+        // 输入在有效范围内，继续跳转逻辑
+		currentPageIndex=parseInt(pageInput) - 1;
+        setTimeout(function() {
+        	updatePoems(currentPageIndex);
+        }, 120);
+		
+    } else {
+        // 输入不在有效范围内，显示错误消息
+        alert("请输入1到" + maxLimit + "之间的页码。");
+    }
+}
+
+// 在页面加载时为所有具有.page-input类的输入字段应用最小和最大值限制
+document.addEventListener("DOMContentLoaded", function () {
+    var pageInputs = document.querySelectorAll(".page-input");
+    var minLimit = 1;
+    var maxLimit = Math.ceil(poemsData.length / poemsPerPage);
+
+    pageInputs.forEach(function (input) {
+        input.setAttribute("min", minLimit);
+        input.setAttribute("max", maxLimit);
+    });
+});
 
 // 更新诗歌展示
 function updatePoems(currentPageIndex) {
@@ -66,7 +94,9 @@ function loadPoems(poemsData) {
 				const datapage = event.target.getAttribute("data-page");
 				currentPageIndex = parseInt(datapage) - 1;
 				// 调用带有参数的函数
-				updatePoems(currentPageIndex);
+				setTimeout(function() {
+					updatePoems(currentPageIndex);
+				}, 120);
 			});
 		});
 
@@ -80,7 +110,7 @@ function updatePageLinks() {
 	const totalPages = Math.ceil(poemsData.length / poemsPerPage);
 
 	// 最多显示的页码链接数量
-	const maxPageLinks = 4; // 可根据需求调整
+	const maxPageLinks = 5; // 可根据需求调整
 
 	// 计算起始和结束页码
 	let startPage = Math.max(currentPageIndex - Math.floor(maxPageLinks / 2), 0);
@@ -96,7 +126,9 @@ function updatePageLinks() {
 	firstPageLink.textContent = "首页"; // 修改为中文“首页”
 	firstPageLink.addEventListener("click", function() {
 		currentPageIndex = 0;
-		updatePoems(currentPageIndex);
+		setTimeout(function() {
+			updatePoems(currentPageIndex);
+		}, 150);
 	});
 	pageLinks.appendChild(firstPageLink);
 
@@ -106,7 +138,9 @@ function updatePageLinks() {
 	previousPageLink.addEventListener("click", function() {
 		if (currentPageIndex > 0) {
 			currentPageIndex--;
-			updatePoems(currentPageIndex);
+			setTimeout(function() {
+				updatePoems(currentPageIndex);
+			}, 150);
 		}
 	});
 	pageLinks.appendChild(previousPageLink);
@@ -130,7 +164,9 @@ function updatePageLinks() {
 		// 添加点击事件监听器
 		pageLink.addEventListener("click", function() {
 			currentPageIndex = i;
-			updatePoems(currentPageIndex);
+			setTimeout(function() {
+				updatePoems(currentPageIndex);
+			}, 150);
 		});
 
 		pageLinks.appendChild(pageLink);
@@ -149,7 +185,9 @@ function updatePageLinks() {
 	nextPageLink.addEventListener("click", function() {
 		if (currentPageIndex < totalPages - 1) {
 			currentPageIndex++;
-			updatePoems(currentPageIndex);
+			setTimeout(function() {
+				updatePoems(currentPageIndex);
+			}, 150);
 		}
 	});
 	pageLinks.appendChild(nextPageLink);
@@ -159,7 +197,9 @@ function updatePageLinks() {
 	lastPageLink.textContent = "尾页"; // 修改为中文“末页”
 	lastPageLink.addEventListener("click", function() {
 		currentPageIndex = totalPages - 1;
-		updatePoems(currentPageIndex);
+		setTimeout(function() {
+			updatePoems(currentPageIndex);
+		}, 150);
 	});
 	pageLinks.appendChild(lastPageLink);
 }
