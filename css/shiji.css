@@ -7,24 +7,6 @@
 	position: absolute;
 }
 
-/* 样式化输入框 */
-#pageInput {
-	width: 20%;
-	/* 设置宽度为200px，根据需要进行调整 */
-	max-width: 100px;
-	padding: 5px;
-	border-radius: 5px;
-	/* 设置圆角 */
-}
-
-/* 样式化按钮 */
-#goButton {
-	border-radius: 5px;
-	/* 设置圆角 */
-	margin-left: 10px;
-	height: 100%;
-}
-
 .qr_code {
 	position: absolute;
 	right: 0%;

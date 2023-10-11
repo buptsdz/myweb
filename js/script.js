@@ -4,8 +4,8 @@ function goToPage() {
 
     if (pageInput >= 1 && pageInput <= maxLimit) {
         // 输入在有效范围内，继续跳转逻辑
-        var targetPageURL = "shiji" + pageInput + ".html";
-        window.location.href = targetPageURL;
+        var page=parseInt(datapage) - 1;
+        ;
     } else {
         // 输入不在有效范围内，显示错误消息
         alert("请输入1到" + maxLimit + "之间的页码。");
