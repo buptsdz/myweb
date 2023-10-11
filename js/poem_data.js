@@ -36,10 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function updatePoems(currentPageIndex) {
-	const start = currentPageIndex * poemsPerPage;
-	const end = start + poemsPerPage;
-	const poemsToShow = poemsData.slice(start, end);
-
 	// 获取加载提示元素
 	const loading = document.querySelectorAll(".loading");
 
@@ -47,6 +43,9 @@ function updatePoems(currentPageIndex) {
 	loading.forEach(function(loading) {
 		loading.style.display = "block";
 	});
+	const start = currentPageIndex * poemsPerPage;
+	const end = start + poemsPerPage;
+	const poemsToShow = poemsData.slice(start, end);
 
 	// 清空诗歌容器
 	poemContainer.innerHTML = "";
@@ -56,7 +55,7 @@ function updatePoems(currentPageIndex) {
 	setTimeout(function() {
 		loadPoems(poemsToShow);
 		updatePageLinks();
-		隐藏加载提示
+		//隐藏加载提示
 		loading.forEach(function(loading) {
 			loading.style.display = "none";
 		});
