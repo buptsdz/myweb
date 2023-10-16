@@ -4,7 +4,9 @@ const poemsPerPage = 4;
 
 // 获取诗歌容器和导航栏链接
 const poemContainer = document.querySelector(".poem-container");
+//const poemContainer = document.getElementById("poem-container");
 const pageLinks = document.querySelector(".pagination-bar");
+
 
 function goToPage() {
 	var pageInput = document.getElementById("pageInput").value;
@@ -77,6 +79,7 @@ function loadPoems(poemsData) {
 	                <div class="scene">
 	                    ${scenesHtml}
 	                </div>
+					
 	            </div>
 	        </div>
 	    `;
@@ -555,39 +558,39 @@ const poemsData = [{
 		scenes: ["2019.10.12"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "59.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "mengzhongchou",
+		b: "59.梦中愁",
+		contson: "白蘋茫茫，倚看寒月一钩。独吟多景楼头，难回首，沙洲鹭起，泊船忆旧游。<br> <br>乡梦知否？梦中谁似我愁？滴沥，滴沥，小雨不休。望君不见，泪空流。吹笳声远，船尾燕飞去。<br>",
+		scenes: ["2020.初秋"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "60.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "qiuci",
+		b: "60.秋词",
+		contson: "桐叶未肯解，秋风响寒蝉。<br>潮气随夜生，江月带霜来。<br>",
+		scenes: ["2020.9.17"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "61.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "qiuyeshuhuai",
+		b: "61.秋夜抒怀",
+		contson: "桂香飘溢秋月清，东风又动故人襟。<br>笑语盈盈多乐颜，金丝如瀑满目情。<br>",
+		scenes: ["2020.9.25"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "62.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "wuerlai_chunqu",
+		b: "62.无而来",
+		contson: "春去谁可留，桂香旋落，弹指三秋。<br>烟云明灭枕深秋。<br>多景今犹在，故我为诗，遗梦孤舟。<br> <br>语数物化生，未要折幡，吟罢《行路难》。<br>曾记数学折磨，竟夕寐叹。<br> <br>何必苦言愁，凭轩上善，落叶聚还散。<br>独听疏蝉幽怨。<br>流光几徘徊，池月照影，皎皎其娈。<br>",
+		scenes: ["2020.10.19"],
 	},
 	{
 		id: "sumuzhegengziqiu",
 		b: "63.苏幕遮·庚子秋",
-		contson: "碧云天，黄叶地，烟云悄逝，明灭几时留？桂香摇落水微波，流光徘徊，池月枕深秋。<br>棹轻楫，梦上善，作客瓜洲，不负少年游。曾记多景望断，白汀悠悠，未有蒹葭愁。<br>",
-		scenes: ["2020.10.25","——高中最后一首情诗"],
+		contson: "碧云天，黄叶地，烟云悄逝，明灭几时留？桂香摇落水微波，流光徘徊，池月枕深秋。<br> <br>棹轻楫，梦上善，作客瓜洲，不负少年游。曾记多景望断，白汀悠悠，未有蒹葭愁。<br>",
+		scenes: ["2020.10.25", "——高中最后一首情诗"],
 	},
 	{
 		id: "yannanfei",
 		b: "64.雁南飞",
-		contson: "雪默销，几多天风。醉晚尘蒙重，千里凝眸，黯然魂收。枯荷何须枕寒流？不语，孤伫小汀中。<br>云幕远，白镜青空。想浙江潮平，两三星火，已是瓜洲。池畔垂下无叶柳。北望，雁别茫茫秋。<br>",
+		contson: "雪默销，几多天风。醉晚尘蒙重，千里凝眸，黯然魂收。枯荷何须枕寒流？不语，孤伫小汀中。<br> <br>云幕远，白镜青空。想浙江潮平，两三星火，已是瓜洲。池畔垂下无叶柳。北望，雁别茫茫秋。<br>",
 		scenes: ["2020.12.31"],
 	},
 	{
