@@ -62,6 +62,7 @@
 	/* 设置圆角 */
 	margin-left: 10px;
 	height: 28px;
+	cursor: pointer;
 }
 
 .pagination-bar a {
