@@ -38,9 +38,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function updatePoems(currentPageIndex) {
-	var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?page=' + (currentPageIndex+1);
-	window.history.pushState({ path: newUrl }, '', newUrl);
-	
+	// var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?page=' + (
+	// 	currentPageIndex + 1);
+	// window.history.pushState({
+	// 	path: newUrl
+	// }, '', newUrl);
 	const start = currentPageIndex * poemsPerPage;
 	const end = start + poemsPerPage;
 	const poemsToShow = poemsData.slice(start, end);
@@ -55,6 +57,7 @@ function updatePoems(currentPageIndex) {
 		updatePageLinks();
 	}, 90);
 }
+
 
 // 加载诗歌的函数
 function loadPoems(poemsData) {
@@ -109,7 +112,6 @@ function loadPoems(poemsData) {
 
 // 更新导航栏链接
 function updatePageLinks() {
-
 	// 计算总页数
 	const totalPages = Math.ceil(poemsData.length / poemsPerPage);
 
