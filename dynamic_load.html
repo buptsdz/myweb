@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<title>我的诗集</title>
@@ -27,12 +27,10 @@
 		<section style="display: flex;">
 			<div class="left_sec">
 				<div class="main2">
-					<div class="loading"
-						style="display: none; z-index: 9999;font-size: 22px;margin-top: 50px;margin-left: 25%">加载中<span>
-							· </span><span> · </span><span> · </span><span> · </span><span> · </span><span> · </span>
+					<div class="loading">
+						加载中&nbsp<span> · </span>&nbsp<span> · </span>&nbsp<span> · </span>
 					</div>
-					<div class="loading"
-						style="display: none; z-index: 9999;font-size: 15px;margin-top: 15px;margin-left: 25%">
+					<div class="loading">
 						(第一次加载会比较慢)</div>
 					<div class="poem-container">
 						<script>
@@ -76,6 +74,7 @@
 			<div id="waline"></div>
 		</div>
 		<script src="./js/poem_data.js"></script>
+		<!-- 评论区 -->
 		<script type="module">
 			import {
 				init

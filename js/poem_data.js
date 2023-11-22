@@ -17,7 +17,7 @@ function goToPage() {
 		currentPageIndex = parseInt(pageInput) - 1;
 		setTimeout(function() {
 			updatePoems(currentPageIndex);
-		}, 120);
+		}, 150);
 
 	} else {
 		// 输入不在有效范围内，显示错误消息
@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function updatePoems(currentPageIndex) {
+	var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?page=' + (currentPageIndex+1);
+	window.history.pushState({ path: newUrl }, '', newUrl);
+	
 	const start = currentPageIndex * poemsPerPage;
 	const end = start + poemsPerPage;
 	const poemsToShow = poemsData.slice(start, end);
@@ -50,7 +53,7 @@ function updatePoems(currentPageIndex) {
 	setTimeout(function() {
 		loadPoems(poemsToShow);
 		updatePageLinks();
-	}, 70);
+	}, 90);
 }
 
 // 加载诗歌的函数
@@ -504,58 +507,58 @@ const poemsData = [{
 		scenes: ["2019.10.12"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "50.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "siyueshijiurichenguanwuyougan",
+		b: "50.四月十九日晨观雾有感",
+		contson: "淅淅沥沥声渐渐，百厦丛中生寒烟。<br>谷雨催来花满地，自在听风自在眠。",
+		scenes: ["2020.4.19"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "51.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "yuwulouzhiren",
+		b: "51.予五楼之人",
+		contson: "暮光挟飞霞，潜藏远山间。<br>车骑归来迟，登阶独悠闲。<br>试问读书晚？细看唯此人。<br>顿然闻一语，犹听仙人语。<br>百日终鲜见，百日竟无言。<br>四目正相对，支吾趋步前。<br>独凭书几坐，历历在眼帘。<br>想得灯明时，暖照淡妆颜。<br>非有沉鱼貌，美玉自心田。<br>莫识当年君，扬镳便缘尽。<br>今我实有幸，再谢当年情。<br>无以聊赠君，愿祝千里行。",
+		scenes: ["2020 春"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "52.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "siguisanshouqiyi",
+		b: "52.思归三首(其一)",
+		contson: "南土有佳人，幽居藏修上。<br>秋水怅天色，冷暖共风知。<br>喧喧世间音，烦忧多未止。<br>倦卧凭几瞑，郁郁飞心思.",
+		scenes: ["2020.5.6"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "53.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "siguisanshouqier",
+		b: "53.思归三首(其二)",
+		contson: "皎皎明月夜，哙哙斗牛清。<br>明月已如荼，思作故梦情。<br>故梦应犹在，旧时月与星。<br>青丝寻不见，再梦便轻盈。",
+		scenes: ["2020.5.6"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "54.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "siguisanshouqisan",
+		b: "54.思归三首(其三)",
+		contson: "冷月凝西风，愁云暗星辰。<br>相失不逾百，霜落心头深。<br>渺渺寒更泪，情绝白发生。<br>多少爱与恨，都来思念真！",
+		scenes: ["2020.5.9"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "55.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "zengmoumou",
+		b: "55.赠某某",
+		contson: "寻觅重寻觅，往日烂舟楫。<br>浮沉沧波里，玉音杳难期。<br>",
+		scenes: ["2020.5.13"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "56.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "wuyueershiyisiyinjie",
+		b: "56.五月二十一思音节",
+		contson: "晚风细吹犬声稀，树影暗摇月光明。<br>不知东水何处尽，涓涓流长寄吾心。<br>",
+		scenes: ["2020.5.21"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "57.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "xiayingchunxiaoyu",
+		b: "57.夏迎春·小雨",
+		contson: "珠雨声碎，慢滴我窗，晴空悠悠。<br>今时明日何相异？漉湿花丛中。",
+		scenes: ["2020.5.25"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "58.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "zaju_routi",
+		b: "58.杂句",
+		contson: "柔荑不禁风，白云净无尘。<br>若得君一顾，一目尽余生。",
+		scenes: ["2020.5.27"],
 	},
 	{
 		id: "mengzhongchou",
@@ -597,7 +600,7 @@ const poemsData = [{
 		id: "bashengguazhou",
 		b: "65.八声瓜洲",
 		contson: "秋茫茫冷夕垂远天，无语下山肩。<br>两三灯火稀，白汀烟笼，蒹恨葭愁。<br>流光年年照此，池月共吟游。<br>惟有扬子水，未肯淹留。<br>洪涛去去无声，念浙江潮起，一星如豆。<br>泊船见瓜洲，上善傍藏修。<br>轻楫慢，银波悠悠，几回梦、几回茫茫秋！<br>",
-		scenes: ["2019.10.12"],
+		scenes: ["2021.2.29"],
 	},
 	{
 		id: "siyueganhuai",
