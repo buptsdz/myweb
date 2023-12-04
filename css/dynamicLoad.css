@@ -7,10 +7,58 @@
 	position: absolute;
 }
 
+.dynamic-info {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.dynamic-info .switch-container {
+	display: flex;
+	position: relative;
+	height: 30px;
+	width: 72%;
+	max-width: 500px;
+	border-radius: 21px;
+	background-color: rgb(235, 235, 235); //滑块区域背景颜色
+}
+
+.dynamic-info .slider {
+	background-color: blue; // 背景块的颜色
+	transition: transform 0.3s ease-in-out; // 平滑移动动画
+}
+
+.dynamic-info .switch-button {
+	flex: 1;
+	text-align: center;
+	cursor: pointer;
+	position: relative; // 这允许滑块相对于按钮定位
+	font-size: 17px;
+}
+
+.dynamic-info .button-content {
+	border-radius: 20px;
+	transition: background-color 0.3s ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	color: rgb(0, 0, 0);
+}
+
+.dynamic-info .button-content.active {
+	color: rgb(230, 230, 230); // 活动标签的文本颜色
+}
+
 .comment {
 	width: 90%;
 	max-width: 800px;
 	margin: auto;
+}
+
+.comment .active {
+	display: none;
 }
 
 /* 加载中动画 */
@@ -170,7 +218,6 @@
 	margin-bottom: 3px;
 }
 
-
 .main2 .sons .cont {
 	height: auto;
 	clear: both;
@@ -187,6 +234,7 @@
 
 /* 诗句内容 */
 .main2 .sons .cont .contson {
+	width: 94%;
 	clear: both;
 	overflow: hidden;
 	font-size: 17px;
@@ -196,6 +244,15 @@
 @media screen and (max-width: 700px) {
 	.main2 .sons .cont .contson {
 		font-size: 16px;
+		width: 98%;
+		/* 手机端的字体大小 */
+	}
+}
+
+@media screen and (max-width: 390px) {
+	.main2 .sons .cont .contson {
+		font-size: 15px;
+		width: 98%;
 		/* 手机端的字体大小 */
 	}
 }
@@ -268,4 +325,71 @@
 
 .main2 .sons .cont span {
 	line-height: 200%;
+}
+
+/*随机跳转*/
+.torandom {
+	margin-top: -13px;
+	margin-bottom: 7px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.torandom .click-section {
+	user-selected: none;
+	display: flex;
+	border: 3px solid black;
+	border-radius: 10px;
+	cursor: pointer;
+	padding: 3px;
+	z-index: 55;
+	transition: border-color 0.3s ease-in-out;
+	/* 添加渐变效果 */
+}
+
+.torandom .click-section:hover {
+	border-color: #FF0000;
+	/* 鼠标悬停时的红色边框 */
+}
+
+.torandom .hand-o-right {
+	position: absolute;
+	margin-right: 15px;
+	font-size: 20px;
+	width: 15vw;
+}
+
+@media screen and (max-width: 700px) {
+	.torandom .hand-o-right {
+		width: 48vw;
+	}
+}
+
+.torandom .click-section .random-text {
+	font-size: 18px;
+	margin-right: 6px;
+}
+
+.torandom .click-section .random-icon {
+	font-size: 20px;
+}
+
+#article-info {
+	display: flex;
+	justify-content: center;
+}
+
+.readcount-sec {
+	width: 78%;
+	max-width: 750px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.readcount-sec .readcount-text {
+	display: flex;
+	align-items: center;
+	color: #777777;
 }

@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="css/p-a.css" />
 		<link rel="stylesheet" type="text/css" href="css/a.css" />
 		<link rel="stylesheet" type="text/css" href="css/img.css" />
+		<link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	</head>
 	<body style="margin:0;padding:0;">
@@ -24,11 +25,12 @@
 				</div>
 			</div>
 		</div>
-
+<!-- 中间区域 -->
 		<div style="
         max-width: 700px;
-        height: 380px;
+        height: auto;
         margin: 10px auto;
+		margin-bottom: 13px;
         padding: 5px;
         line-height: 1.7;
       ">
@@ -36,7 +38,7 @@
 				北京邮电大学/通信工程/大三
 			</p>
 			<p style="text-align: center; font-size: 20px; margin-top: -10px">
-				Hello, World!
+				Hello, friend!
 			</p>
 
 			<div style="text-align: center">
@@ -46,8 +48,8 @@
             display: inline-block;
             position: relative;
           ">
-					<button class="button2" style="color: #f1f1f1; font-size: 20px">
-						我写的诗
+					<button class="button2" style="color: #f1f1f1; font-size: 22px">
+						<div class="shine">我写的诗</div>
 					</button>
 					<a href="./mulu/mulu1.html" class="no-underline" style="
               position: absolute;
@@ -66,31 +68,31 @@
 			<!-- 狗头 -->
 			<div class="img-container">
 				<img src="https://pic.imgdb.cn/item/6526440dc458853aef709c2c.png" alt="dog"
-					style="width: 200px; margin-top: -35px" />
+					style="width: 200px;margin-top: 14px;" />
 			</div>
 		</div>
-
-		<div style="
-        background-color: #f1f1f1;
-        text-align: center;
-        padding: 25px;
-        font-size: 12px;
-      ">
-			<p style="
-          font-size: 20px;
-          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        ">
-				我的b站主页↓
-			</p>
-			<p>
-				<a href="https://space.bilibili.com/512181208/favlist?fid=1518595308&ftype=create" target="_blank"
-					style="font-size: 14px" class="a-svg">
-					友情链接
-					<svg viewBox="0 0 75 50">
-						<path d="M 5 50 H 70 C 66 40 85 5 30 8 C -5 10 0 45 20 45 C 112 55 65 -17 10 8" />
-					</svg>
-				</a>
-			</p>
+		<!-- 底部区域 -->
+		<div class="bottom-sec">
+			<div class="tobilibili">
+				<div class="tobilibili-text">
+					<div>我的b站主页</div>
+					<div style="margin-left: 5px;"><i class="fa fa-arrow-right"></i></div>
+				</div>
+				<div class="tobilibili-href">
+					<a href="https://space.bilibili.com/512181208/favlist?fid=1518595308&ftype=create" target="_blank"
+						style="font-size: 14px" class="a-svg">
+						友情链接
+						<svg viewBox="0 0 75 50">
+							<path d="M 5 50 H 70 C 66 40 85 5 30 8 C -5 10 0 45 20 45 C 112 55 65 -17 10 8" />
+						</svg>
+					</a>
+				</div>
+			</div>
+			<div class="updatelog">
+		         <div class="updatelog-text">
+		         	<a href="./updatelog.html">更新记录</a>
+		         </div>
+			</div>
 		</div>
 	</body>
 </html>

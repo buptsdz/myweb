@@ -2,12 +2,12 @@
   display: flex;
   justify-content: center; /* 水平居中 */
   align-items: center; /* 垂直居中 */
-  height: 300px; /* 设置容器高度，可以根据需要调整 */
+  height:220px; /* 设置容器高度，可以根据需要调整 */
 }
 
 .img-container img {
   display: inline-block;
-  user-selected:none
+  user-selected:none;
 }
 
 .no-link-style {

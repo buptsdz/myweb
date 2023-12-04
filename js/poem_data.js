@@ -1,5 +1,5 @@
 // 当前显示的诗歌索引和每页显示的诗歌数量
-let currentPageIndex = 0;
+let currentPageIndex = 0;//当前页码是从0开始的索引
 const poemsPerPage = 4;
 
 // 获取诗歌容器和导航栏链接
@@ -8,17 +8,18 @@ const poemContainer = document.querySelector(".poem-container");
 const pageLinks = document.querySelector(".pagination-bar");
 
 
-function goToPage() {
-	var pageInput = document.getElementById("pageInput").value;
+function goToPage(e) {
+	e.preventDefault();
+	var pageInput = document.getElementById("page-Input").value;
 	var maxLimit = Math.ceil(poemsData.length / poemsPerPage); // 修改最大值
-
+	console.log("页码：", pageInput);
 	if (pageInput >= 1 && pageInput <= maxLimit) {
 		// 输入在有效范围内，继续跳转逻辑
 		currentPageIndex = parseInt(pageInput) - 1;
 		setTimeout(function() {
 			updatePoems(currentPageIndex);
+			document.getElementById("page-Input").value = ''; // 清除输入框内容
 		}, 150);
-
 	} else {
 		// 输入不在有效范围内，显示错误消息
 		alert("请输入1到" + maxLimit + "之间的页码。");
@@ -27,7 +28,7 @@ function goToPage() {
 
 // 在页面加载时为所有具有.page-input类的输入字段应用最小和最大值限制
 document.addEventListener("DOMContentLoaded", function() {
-	var pageInputs = document.querySelectorAll(".page-input");
+	var pageInputs = document.querySelectorAll(".page-Input");
 	var minLimit = 1;
 	var maxLimit = Math.ceil(poemsData.length / poemsPerPage);
 
@@ -62,8 +63,8 @@ function updatePoems(currentPageIndex) {
 // 加载诗歌的函数
 function loadPoems(poemsData) {
 	poemsData.forEach(poem => {
-		const scenesHtml = poem.scenes.map(scene => `<p>${scene}</p>`).join(''); // 使用循环显示多个 scene
-		let contsonWithLinks = poem.contson; // 初始化为原始诗歌内容
+		const scenesHtml = poem.scenes.map(scene => `<p>${scene}</p>`).join('');
+		let contsonWithLinks = poem.contson;
 
 		// 使用正则表达式查找并替换目标文字
 		if (currentPageIndex == 18 && /枫红/g.test(contsonWithLinks)) {
@@ -74,23 +75,30 @@ function loadPoems(poemsData) {
 			contsonWithLinks = contsonWithLinks.replace(/枫红/g,
 				'<a href="#" class="customs-link" data-page="19">枫红</a>');
 		}
-
+		if (currentPageIndex == 10 && /甲帐/g.test(contsonWithLinks)) {
+			contsonWithLinks = contsonWithLinks.replace(/甲帐/g,
+				'<a href="#" class="customs-link" data-page="21">甲帐</a>');
+		}
+		if (currentPageIndex == 20 && /甲帐/g.test(contsonWithLinks)) {
+			contsonWithLinks = contsonWithLinks.replace(/甲帐/g,
+				'<a href="#" class="customs-link" data-page="11">甲帐</a>');
+		}
 		const poemHtml = `
-	        <div class="sons">
-	            <div class="cont">
-	                <div id="${poem.id}">
-	                    <p><a href="detail/${poem.id}.html" target="_blank"><b>${poem.b}</b></a></p>
-	                    <div class="contson">${contsonWithLinks}</div>
-	                </div>
-	                <div class="scene">
-	                    ${scenesHtml}
-	                </div>
-					
-	            </div>
-	        </div>
-	    `;
+            <div class="sons">
+                <div class="cont">
+                    <div id="${poem.id}">
+                        <p><a href="detail/${poem.id}.html" target="_blank"><b>${poem.b}</b></a></p>
+                        <div class="contson">${contsonWithLinks}</div>
+                    </div>
+                    <div class="scene">
+                        ${scenesHtml}
+                    </div>
+                </div>
+            </div>
+        `;
 
 		poemContainer.innerHTML += poemHtml;
+
 		// 为所有带有 "custom-link" 类的链接添加点击事件处理程序
 		const customLinks = document.querySelectorAll(".customs-link");
 		customLinks.forEach(link => {
@@ -106,9 +114,9 @@ function loadPoems(poemsData) {
 				}, 120);
 			});
 		});
-
 	});
 }
+
 
 // 更新导航栏链接
 function updatePageLinks() {
@@ -209,11 +217,24 @@ function updatePageLinks() {
 	});
 	pageLinks.appendChild(lastPageLink);
 }
+//随机加载诗歌
+function torandom() {
+	// 在这里执行点击时要触发的操作
+	var minLimit = 12;
+	var maxLimit = Math.ceil(poemsData.length / poemsPerPage);
 
-
+	// 生成介于 minLimit 和 maxLimit 之间的随机数
+	var randomPage = Math.floor(Math.random() * (maxLimit - minLimit + 1)) + minLimit;
+	currentPageIndex = randomPage - 1;
+	console.log('randompage:', randomPage);
+	// 将随机数传递给 updatePoems 函数
+	setTimeout(function() {
+		updatePoems(currentPageIndex);
+	}, 150);
+	// 如果需要执行其他操作，可以在这里添加代码
+}
 
 //诗歌数据
-
 const poemsData = [{
 		id: "qiuyueye",
 		b: "1.秋月谒",
@@ -407,106 +428,106 @@ const poemsData = [{
 		scenes: ["2019.10.12"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "33.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "jiaoyue",
+		b: "33.皎月",
+		contson: "皎月皎月，清扬婉兮。<br>有女如荼，匿于后方。<br>皎月皎月，无以说兮。<br>有美一人，婉如清扬，<br>皎月皎月，何处见兮。<br>思虽如荼，与子同梦。<br>彼姝者兮，青丝楚楚。<br>洵美且朴，立于后方。<br>既见君子，胡为不喜。<br>岂不尔思，子不我即！",
+		scenes: ["2019 十月初"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "34.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "jiangchengzishaonianyou",
+		b: "34.江城子·少年游",
+		contson: "&nbsp &nbsp少年游时轻且狂，北泽广，望澄江。不识吴地，湍流千层浪。妄教诗情作飞卿，洒潘江，尽思量。<br><br>&nbsp &nbsp十年犹记度雁荡，旅夜长，烂柯殇。歧路依旧，与月话凄凉。归思幽愈何处寄？扪左心，应断肠。",
+		scenes: ["2019.11.19"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "35.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "dongzhi",
+		b: "35.冬至",
+		contson: "天风吞吐寒意深，云海苍茫蔽三辰。<br>断鸿秋朝悲流年，冷蝉声噤落空尘。<br>七弦直出振长风，万里吹度送佳人。<br>一夜静寥无雨声，却堆黄花满纷纶。",
+		scenes: ["2019.11.29"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "36.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "yanbudangqiyi",
+		b: "36.雁不荡(其一)",
+		contson: "&nbsp &nbsp星河暗转，榻里独眠似小船。只道舟不动。却传，鱼鸟梦，钱塘湾。<br><br>&nbsp &nbsp乍度夜阑，古道又见雁荡山。十年红尘路。谁堪？一小楫，水千万。",
+		scenes: ["2019.12.6"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "37.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "yanbudangyuexiacangxiuqier",
+		b: "37.雁不荡·月下藏修(其二)",
+		contson: "&nbsp &nbsp月傍藏修，空里残光泛层楼。西风吹不去。依旧，寒鸦飞，杨柳瘦。<br><br>&nbsp &nbsp欲罢还休，且向何处寻好逑？人从梦中过。悠悠，菱歌远，煮红豆。",
+		scenes: ["2019.12.9"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "38.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "yanbudangqisan",
+		b: "38.雁不荡(其三)",
+		contson: "&nbsp &nbsp月涌西楼，万里放舟怎得收？蜷卧枕还冰。温酒，吟李篇，诗百首。<br><br>&nbsp &nbsp稳泛沧流，今夜方知来日久。指入银波碎。回首，罢吾竿，不系舟。",
+		scenes: ["2019.12.10"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "39.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "youxin",
+		b: "39.忧心",
+		contson: "何处归去？忧心愈愈，<br>人以我扤，讹言我瘉。<br>何处归去？忧心惸惸，(qióng)<br>彼其之人，莫知我心。<br>何处归去？忧心悁悁，<br>且徂且止，愿迩夫人。<br>何处归去，忧心忉忉，<br>金玉尔颜，倩莫遐心。<br>何处归去，忧心怛怛，<br>风月无期，嘉思难弭！",
+		scenes: ["2019 十月初"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "40.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "yesi",
+		b: "40.夜思",
+		contson: "子兮子兮，秋水盈盈，<br>笑靥轻轻，缱绻微蹙。<br>子兮子兮，颜如舜华，<br>我觏之子，亦将眼垂。<br>子兮子兮，在其一方，<br>不能餐兮，维子之故！",
+		scenes: ["2019 十月初"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "41.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "mengzhongfanzhou",
+		b: "41.梦中泛舟",
+		contson: "月出清婉色，半面薄雾遮。<br>心随湖舟往，悠悠泛菱歌。",
+		scenes: ["2019.12.10"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "42.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "yanbudangqisi",
+		b: "42.雁不荡(其四)",
+		contson: "&nbsp &nbsp云端清圆，僇人只作客中看。白霜天地满。留与，寸心间，拂还乱。<br><br>&nbsp &nbsp墨瓦青砖，江南江北万重山。回日非甲帐。难谙，人世事，风雨翻。",
+		scenes: ["2019.12.10"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "43.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "shiliulianyouhui",
+		b: "43.食榴莲有悔",
+		contson: "小儿不止忖，教室啖榴莲。<br>怨人玷其爱？固是过在先。",
+		scenes: ["2019.12.11"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "44.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "shuidouge",
+		b: "44.水痘歌",
+		contson: "水痘一时劲，摧杀少年才。<br>问君何还家？但因水痘信其狂。<br>永昼夜无眠，三更汗惊踏衾息。<br>膺背更无半余地，溽气长殢江水滞。<br>九天昏梦梦，胡言不支力。<br>烈疮生满口，淋巴不虞汙。<br>卧榻僵骨冻，噎逆颙望回六龙。<br>幸得日光耀大块，几觉鲁公挥断日。<br>疏勒城，耿恭将，<br>匈奴百围与绝粮。<br>愿凭丹心在，鬼关之门尚得开。<br>今我不过一旬半，何须朝菌之疾将我瘉？<br>只合与君点银釭，白门月下相思长。",
+		scenes: ["2019.12.15"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "45.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "yuyesigu",
+		b: "45.雨夜思故",
+		contson: "淮左连夜雨，悄溅细入梦。<br>飘飘耳畔缠，绵绵岸柳沾。<br>丝绪何也往？落叶在他乡。<br>南岭多烟瘴，燕方有冰霜。<br>彻眼故园道，北风然浩荡。<br>遥望少年郎，数载羁客殇。",
+		scenes: ["2019.12.19"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "46.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "youjianruoxiyougan",
+		b: "46.又见若兮有感",
+		contson: "昨夜潮信到，忽忆涪江遥。<br>今我泽畔望，昔日白鹤老。<br>万舟水相送，玉汐夹凤箫。<br>未忘《杨叛儿》，一江愁难消。",
+		scenes: ["2019.12.20"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "47.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "shuilongyin",
+		b: "47.水龙吟",
+		contson: "&nbsp &nbsp 冬至近寒，无端。伫风里，碎波迭岸。凝眸谢黄，看罢细草，燕子呢喃。人意难解，梦断藏修，何处凭轩？且向天呼取，未肯折幡，暮云坠，行人泪。<br><br>&nbsp &nbsp 只恐兴意阑珊。秋雁蒙蒙几时逢？不忍惊扰，泪目相送，三江吹帆。秋水盈盈，寒星烁烁，难弭嘉思。可宽些尺度？莫能迎合，诗篇荒湛。",
+		scenes: ["2019.12.24"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "48.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "wuerlai_yijiu",
+		b: "48.无而来",
+		contson: "&nbsp &nbsp 依旧不居留，日月迈迈，丝绪优游。忆经年，星河崔璨，遗梦孤舟。叹漫漫山岚，漠漠轻寒，行踽踽独步，蒙蒙熹光。都将来，化作多少烟云去，三万里，看今朝。<br><br>&nbsp &nbsp 几何韶华在？霜毛杂生，倍觉愁加。念来日，斗转参流，寒窗含晚。唏湝湝东水，渺渺泛无，度朝夕岁月，万帆竞流。拂衣罢，淡了眼前痴与笑，誓击楫，人未老。",
+		scenes: ["2020.1.1", "（19不久留）"],
 	},
 	{
-		id: "shiyuehuaiwang",
-		b: "49.十月怀往",
-		contson: "九月忽辞去，清秋梦冯虚。<br>十年寒窗后，共赴花江曲。<br> 		",
-		scenes: ["2019.10.12"],
+		id: "saishangwanwang",
+		b: "49.塞上晚望",
+		contson: "芜芜原上草，靡靡行人道。<br>沙走胡杨乱，北风应未消。<br>暑气灼丘土，苍鹰日西出。<br>长鸣含晚照，落霞对江潮。<br>塞上无片帆，还请望江南。",
+		scenes: ["2020.4.17", "（疫情刚复课）"],
 	},
 	{
 		id: "siyueshijiurichenguanwuyougan",
@@ -565,7 +586,7 @@ const poemsData = [{
 	{
 		id: "mengzhongchou",
 		b: "59.梦中愁",
-		contson: "白蘋茫茫，倚看寒月一钩。独吟多景楼头，难回首，沙洲鹭起，泊船忆旧游。<br> <br>乡梦知否？梦中谁似我愁？滴沥，滴沥，小雨不休。望君不见，泪空流。吹笳声远，船尾燕飞去。<br>",
+		contson: "&nbsp &nbsp 白蘋茫茫，倚看寒月一钩。独吟多景楼头，难回首，沙洲鹭起，泊船忆旧游。<br> <br>&nbsp &nbsp 乡梦知否？梦中谁似我愁？滴沥，滴沥，小雨不休。望君不见，泪空流。吹笳声远，船尾燕飞去。<br>",
 		scenes: ["2020.初秋"],
 	},
 	{
@@ -589,13 +610,13 @@ const poemsData = [{
 	{
 		id: "sumuzhegengziqiu",
 		b: "63.苏幕遮·庚子秋",
-		contson: "碧云天，黄叶地，烟云悄逝，明灭几时留？桂香摇落水微波，流光徘徊，池月枕深秋。<br> <br>棹轻楫，梦上善，作客瓜洲，不负少年游。曾记多景望断，白汀悠悠，未有蒹葭愁。<br>",
+		contson: "&nbsp &nbsp 碧云天，黄叶地，烟云悄逝，明灭几时留？桂香摇落水微波，流光徘徊，池月枕深秋。<br> <br>&nbsp &nbsp 棹轻楫，梦上善，作客瓜洲，不负少年游。曾记多景望断，白汀悠悠，未有蒹葭愁。<br>",
 		scenes: ["2020.10.25", "——高中最后一首情诗"],
 	},
 	{
 		id: "yannanfei",
 		b: "64.雁南飞",
-		contson: "雪默销，几多天风。醉晚尘蒙重，千里凝眸，黯然魂收。枯荷何须枕寒流？不语，孤伫小汀中。<br> <br>云幕远，白镜青空。想浙江潮平，两三星火，已是瓜洲。池畔垂下无叶柳。北望，雁别茫茫秋。<br>",
+		contson: "&nbsp &nbsp 雪默销，几多天风。醉晚尘蒙重，千里凝眸，黯然魂收。枯荷何须枕寒流？不语，孤伫小汀中。<br> <br>&nbsp &nbsp 云幕远，白镜青空。想浙江潮平，两三星火，已是瓜洲。池畔垂下无叶柳。北望，雁别茫茫秋。<br>",
 		scenes: ["2020.12.31"],
 	},
 	{
@@ -691,7 +712,7 @@ const poemsData = [{
 	{
 		id: "zaju_chouya",
 		b: "80.杂句",
-		contson: "愁鸦栖上晚树，恨啼青空，日下依旧。<br>双手归置何处？笔唯默沉，欲言无由。<br>",
+		contson: "&nbsp &nbsp愁鸦栖上晚树，恨啼青空，日下依旧。<br>&nbsp &nbsp双手归置何处？笔唯默沉，欲言无由。<br>",
 		scenes: ["2021.6.7", "作于数学考完后"],
 	},
 	{
@@ -788,7 +809,7 @@ const poemsData = [{
 		id: "chuchunyin",
 		b: "96.初春吟",
 		contson: "东风尚可劲，水面连波漪。<br>银杏芽未见，寒风画檐冰。<br>曦出送昏暝，飞雀始作嘤。<br>暖日尽其力，出门望晴星。<br>明年依旧景，共说小河听。<br>",
-		scenes: ["2023.2.15", "作于工数期末考"],
+		scenes: ["2023.2.15", "作于工数期末考(考了100)"],
 	},
 	{
 		id: "youwuyi",
@@ -817,13 +838,13 @@ const poemsData = [{
 	{
 		id: "shengshengmanzhongqiu",
 		b: "101.声声慢·中秋",
-		contson: "酌杯酒，愁路难，天意何处，无数苦泪自消受。<br>秋花谁怜？败叶满地。西风也笑我，不如放声歌。<br>",
+		contson: "&nbsp &nbsp酌杯酒，愁路难，天意何处，无数苦泪自消受。<br>&nbsp &nbsp秋花谁怜？败叶满地。西风也笑我，不如放声歌。<br>",
 		scenes: ["2023.9.28 凌晨"],
 	},
 	{
 		id: "zhegutianqiuci",
 		b: "102.鹧鸪天·秋词",
-		contson: "	秋高天蓝空如练，眺望云缓，倦卧无心意。<br>歌台来远声，久滞目。清风不知忧，只是催人眠。<br>",
+		contson: "&nbsp &nbsp秋高天蓝空如练，眺望云缓，倦卧无心意。<br>&nbsp &nbsp歌台来远声，久滞目。清风不知忧，只是催人眠。<br>",
 		scenes: ["2023.9.30 下午"],
 	},
 
