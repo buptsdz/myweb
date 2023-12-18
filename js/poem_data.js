@@ -220,7 +220,7 @@ function updatePageLinks() {
 //随机加载诗歌
 function torandom() {
 	// 在这里执行点击时要触发的操作
-	var minLimit = 12;
+	var minLimit = 9;
 	var maxLimit = Math.ceil(poemsData.length / poemsPerPage);
 
 	// 生成介于 minLimit 和 maxLimit 之间的随机数
@@ -847,5 +847,10 @@ const poemsData = [{
 		contson: "&nbsp &nbsp秋高天蓝空如练，眺望云缓，倦卧无心意。<br>&nbsp &nbsp歌台来远声，久滞目。清风不知忧，只是催人眠。<br>",
 		scenes: ["2023.9.30 下午"],
 	},
-
+	{
+		id: "hanyedusi",
+		b: "103.寒夜独思",
+		contson: "冰冬日三竿，醒来先唤安。<br>急急看新信，无言稍失兴。<br>时刻待朱点，掩闲弄百般。<br>绿标终沉寂，苦闷开又关。<br>流媒上下去，抱幻还回看。<br>忽觉伤神处，沉溺在无端。<br>唉唉向天问，无声唯有寒。",
+		scenes: ["2023.12.18 凌晨1:41"],
+	},
 ];

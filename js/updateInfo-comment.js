@@ -2,7 +2,7 @@
 var currentTab = 'tab2';
 var currentIndex = 1;
 var tabs = [
-    { name: 'tab1', title: '更新动态' },
+    { name: 'tab1', title: '更新日志' },
     { name: 'tab2', title: '收到的评论' }
 ];
 
@@ -23,7 +23,7 @@ function setCurrentTab(name, index) {
     var tab2Content = document.getElementById('tab2-content');
 
     if (currentTab === 'tab1') {
-        tab1Content.style.display = 'block';
+        tab1Content.style.display = 'flex';
         tab2Content.style.display = 'none';
     } else if (currentTab === 'tab2') {
         tab1Content.style.display = 'none';

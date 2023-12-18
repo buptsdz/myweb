@@ -11,12 +11,15 @@
 		<link rel="stylesheet" type="text/css" href="./css/img.css" />
 		<link rel="stylesheet" type="text/css" href="./css/dynamicLoad.css" />
 		<link rel="stylesheet" type="text/css" href="./css/pagination-bar.css" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<style>
 			/* 更新状态栏样式 */
 			.update-content {
 				display: flex;
+				flex-direction: column;
 				margin-left: 18%;
 				margin-right: 18%;
 				margin-bottom: 25px;
@@ -69,6 +72,48 @@
 				.day-ul {
 					font-size: 16px;
 				}
+			}
+
+			.updateplan {
+				margin-top: 15px;
+			}
+
+			.line {
+				width: 90%;
+				font-size: 19px;
+				margin-left: 5%;
+				margin-bottom: 8px;
+				align-self: center;
+				display: flex;
+				align-items: center;
+				text-align: center;
+				justify-content: center;
+				overflow: hidden;
+				/* 防止背景溢出 */
+			}
+
+			.line::before,
+			.line::after {
+				content: '';
+				flex-grow: 1;
+				background: repeating-linear-gradient(to right,
+						rgb(139, 139, 149),
+						rgb(139, 139, 149) 6px,
+						transparent 6px,
+						transparent 10px
+						/* 调整这个值来改变减号之间的间隔 */
+					);
+				height: 1px;
+				/* 调整这个值来改变减号的粗细 */
+				margin: 0 10px;
+				/* 调整边距以分离文本和减号 */
+			}
+
+			.plan-content {
+				display: flex;
+				flex-direction: column;
+				margin-left: 4%;
+				font-size: 18;
 			}
 		</style>
 	</head>
@@ -169,29 +214,43 @@
 				<h1 class="year-title">2023</h1>
 				<h2 class="month-title">2023.12</h2>
 				<ul class="day-ul">
-					<li>12.4:更新8首33-40</li>
+					<li>12.18:新增1首103</li>
+					<li>12.5:新增"未来更新计划"板块</li>
+					<li>12.4:更新8首33-40；添加网页打开时标签页上的小图标</li>
 					<li>12.3:更新5首41-45；添加第11页“甲帐”相关链接</li>
-					<li>12.2:修改输入页码跳转组件，增加按下回车时跳转；重写输入页码跳转框架，美化样式；新增评论区和更新内容切换功能，同时了优化切换效果</li>
+					<li>12.2:修改输入页码跳转组件，增加按下回车时跳转；重写输入页码跳转框架，美化样式；新增<b>评论区和更新内容切换</b>功能，同时了优化切换效果</li>
 				</ul>
 				<h2 class="month-title">2023.11</h2>
 				<ul class="day-ul">
 					<li>11.30:添加主页“我写的诗”扫光效果</li>
-					<li>11.25:加载阅读量时显示加载标记，美化阅读量显示；更新记录页面适配移动端，修改更新记录页面打开方法</li>
-					<li>11.24:添加阅读量标记；添加更新记录页面；修改主页页面布局</li>
+					<li>11.25:加载浏览量时显示加载标记，美化浏览量显示；更新记录页面适配移动端，修改更新记录页面打开方法</li>
+					<li>11.24:添加浏览量标记；添加更新记录页面；修改主页页面布局</li>
 					<li>11.23:添加随机查看按键；修改移动端返回时逻辑</li>
 					<li>11.22:修改诗歌页面等待加载效果；优化网页端刷新效果；增加9首诗</li>
 					<li>11.1:修改小bug</li>
 				</ul>
 				<h2 class="month-title">2023.10</h2>
 				<ul class="day-ul">
-					<li>10.17:添加waline评论系统</li>
-					<li>10.11:重写诗歌加载逻辑，从跳转页面改为js动态加载</li>
+					<li>10.17:<b>添加waline评论系统</b></li>
+					<li>10.11:<b>重写诗歌加载逻辑</b>，从每四首一个html页面改为js动态加载</li>
 				</ul>
 				<h2 class="month-title">2023.7</h2>
 				<ul class="day-ul">
 					<li>7.19:添加主页“友情链接”动态效果</li>
-					<li>7.16:完成初始版本的github静态page部署；添加主页顶端头像动态效果</li>
+					<li>7.16:<b>完成初始版本的github静态页面部署</b>；添加主页顶端头像动态效果</li>
 				</ul>
+			</div>
+			<!-- 更新计划 -->
+			<div class="updateplan">
+				<div class="line">未来更新计划</div>
+				<div class="plan-content">
+					<div>1.所有诗的内容上云储存</div>
+					<div>2.添加诗歌根据类别，感情，地点筛选功能</div>
+					<div>3.对每首诗添加点赞功能</div>
+					<div>4.添加搜索功能</div>
+					<div>5.添加查看每首诗详情功能</div>
+					<div>6.<b>重构项目，使用vue搭建</b></div>
+				</div>
 			</div>
 		</div>
 		<!-- 评论区 -->
